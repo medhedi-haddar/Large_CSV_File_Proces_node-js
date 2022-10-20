@@ -1,9 +1,9 @@
 const fs = require('fs');
 
 let date = new Date();
-
+let filePathName = './output/Last'+date.getTime()+'-outPut.csv';
 (async () => {
-    const writeStream = fs.createWriteStream('./output/Last'+date.getTime()+'-outPut.csv');
+    const writeStream = fs.createWriteStream(filePathName);
     let text =``;
     for(let i = 0 ;i <= 1e8 ; i++){
         if(i === 1e8)  text  = `${i};Test;Hello;World;8\n`
@@ -18,6 +18,6 @@ let date = new Date();
         }
     }
     writeStream.end();
-    console.log('< --------- process done / File created -------- >')
+    console.log(filePathName,' --- process done / File created filePathName ---')
 
 })();
